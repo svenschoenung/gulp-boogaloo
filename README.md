@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/svenschoenung/gulp-task-extension.svg)](https://david-dm.org/svenschoenung/gulp-task-extension)
 [![devDependency Status](https://david-dm.org/svenschoenung/gulp-task-extension/dev-status.svg)](https://david-dm.org/svenschoenung/gulp-task-extension#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/svenschoenung/gulp-task-extension/badges/gpa.svg)](https://codeclimate.com/github/svenschoenung/gulp-task-extension)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/)](https://www.codacy.com/app/svenschoenung/gulp-task-extension)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/61b867e262794455b8d1131e0f6a6f30)](https://www.codacy.com/app/svenschoenung/gulp-task-extension)
 
 # gulp-task-extension
 
