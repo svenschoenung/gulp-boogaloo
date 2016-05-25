@@ -1,14 +1,14 @@
 {
-  "name": "gulp-task-extension",
-  "description": "Extend gulp tasks with additional features",
+  "name": "gulp-boogaloo",
+  "description": "gulp + parameterized tasks = gulp-boogaloo",
   "version": "0.0.0",
   "author": {
     "name": "Sven Schönung <sven.schoenung@gmail.com> (http://sven.schoenung.org/)"
   },
-  "homepage": "https://github.com/svenschoenung/gulp-task-extension.git",
+  "homepage": "https://github.com/svenschoenung/gulp-boogaloo.git",
   "repository": {
     "type": "git",
-    "url": "git://github.com/svenschoenung/gulp-task-extension.git"
+    "url": "git://github.com/svenschoenung/gulp-boogaloo.git"
   },
   "engines": {
     "node": ">= 0.10"
@@ -16,8 +16,7 @@
   "dependencies": {
     "extend": "^3.0.0",
     "fn-args": "^1.0.0",
-    "gulp-util": "^3.0.7",
-    "gulp4": "gulpjs/gulp#4.0"
+    "gulp-util": "^3.0.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",
