@@ -9,25 +9,50 @@ var gulp;
 var gutil = require('gulp-util');
 var log = gutil.log;
 
-function shouldWarn(expected, fn) {
-  var warning = false;
+function shouldWarn(expectedResult, fn) {
+  shouldLog(/Warning:/, expectedResult, fn);
+}
+
+function shouldError(expectedResult, fn) {
+  shouldLog(/Error:/, expectedResult, fn);
+}
+
+function shouldLog(expectedMsg, expectedResult, fn) {
+  var result = false;
   gutil.log = function(msg) {
-    if (/Warning:/.test(msg)) {
-      warning = true;
+    if (expectedMsg.test(msg)) {
+      result = true;
     }
   };
   fn();
-  expect(warning).to.equal(expected);
+  expect(result).to.equal(expectedResult);
 }
 
 beforeEach(function(done) {
   delete require.cache[require.resolve('./index.js')];
   delete require.cache[require.resolve('gulp')];
-  gulp = require('./index.js')(require('gulp'));
+  gulp = require('./index.js')({gulp:require('gulp')});
   gutil.log = log;
   done();
 });
 
+describe('require("gulp-boogaloo")', function() {
+  it('should use gulp instance from parent folder by default', function() {
+    var gulpInst = require('./index.js')();
+    expect(gulpInst).to.have.property('task');
+  });
+  it('should use gulp instance passed as option', function() {
+    var gulpInst = require('./index.js')({gulp:require('gulp')});
+    expect(gulpInst).to.have.property('task');
+  });
+  it('should log error if gulp instance cannot be required', function() {
+    shouldError(true, function() {
+      expect(function() {
+        require('./index.js')({gulp:'does-no-exist'});
+      }).to.throw(Error);
+    });
+  });
+});
 describe('gulp.task()', function() {
   it('should warn when using callback wrong (cb)', function() {
     shouldWarn(true, function() {
